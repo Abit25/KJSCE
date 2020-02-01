@@ -1,0 +1,27 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #d3e5e8;
+}
+
+.ui {
+  display: flex;
+  flex-direction: row;
+}
+
+.filters {
+  flex: 1;
+  margin-top: 2vh;
+
+  margin-left: 1vw;
+}
+
+.both {
+  flex: 5;
+  margin-top: 2vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

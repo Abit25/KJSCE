@@ -13,9 +13,12 @@ const handleClick = () => {
 
 const Test = () => {
   return (
-    <div className="main">
+    <div className="main" style={{ backgroundColor: "#333333" }}>
       <Navbar />
-      <div className="container">
+      <div
+        className="container"
+        style={{ marginTop: "5vh", borderRadius: "25px", marginBottom: "5vh" }}
+      >
         <div
           className="info"
           style={{

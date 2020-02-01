@@ -27,7 +27,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar
         position="static"
-        style={{ backgroundColor: "#1e1e1e", width: "100vw" }}
+        style={{ backgroundColor: "#FF9900", width: "100vw" }}
       >
         <Toolbar>
           <IconButton
@@ -38,8 +38,12 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
+          <Typography
+            variant="h6"
+            className={classes.title}
+            style={{ color: "black" }}
+          >
+            IdealEmp
           </Typography>
           <a
             href="http://localhost:8000/logout"
