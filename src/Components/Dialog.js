@@ -63,13 +63,15 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function FormDialog({ text }) {
+export default function FormDialog({ text, mychange }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = event => {
+    console.log("Added value");
+    mychange(event.target.value);
     setPersonName(event.target.value);
   };
 

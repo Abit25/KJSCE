@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import FormDialog from "./Dialog";
 import EduDialog from "./EduDialog";
 import DateDialog from "./DateDialog";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import { Context } from "../context/authContext";
 
 import Navbar from "./Navbar";
 import "./test.css";
@@ -14,6 +15,7 @@ const handleClick = () => {
 };
 
 const Test = () => {
+  const { addEdu, addSkills, state, addJobs, addIntern } = useContext(Context);
   return (
     <div className="main" style={{ backgroundColor: "#333333" }}>
       <Navbar />
@@ -46,14 +48,19 @@ const Test = () => {
             </Typography>
           </div>
           <div className="data">
-            <ul>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
+            {state.education.length ? (
+              state.education
+            ) : (
+              <h2>
+                <i>Click on the + button to add</i>
+              </h2>
+            )}
           </div>
           <div className="add">
-            <EduDialog text="Select your Educational Qualification" />
+            <EduDialog
+              text="Select your Educational Qualification"
+              mychange={addEdu}
+            />
           </div>
         </div>
         <hr />
@@ -64,17 +71,24 @@ const Test = () => {
             </Typography>
           </div>
           <div className="data">
-            <ul>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
+            {state.jobs.length ? (
+              <ul>
+                {state.jobs.map(item => (
+                  <li>{item.pos}</li>
+                ))}
+              </ul>
+            ) : (
+              <h2>
+                <i>Click on the + button to add</i>
+              </h2>
+            )}
           </div>
           <div className="add">
             <DateDialog
               heading="Add a Job"
               text="Fill up the following form"
               label="Position"
+              mychange={addJobs}
             />
           </div>
         </div>
@@ -86,17 +100,24 @@ const Test = () => {
             </Typography>
           </div>
           <div className="data">
-            <ul>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
+            {state.internships.length ? (
+              <ul>
+                {state.internships.map(item => (
+                  <li>{item.pos}</li>
+                ))}
+              </ul>
+            ) : (
+              <h2>
+                <i>Click on the + button to add</i>
+              </h2>
+            )}
           </div>
           <div className="add">
             <DateDialog
               heading="Add an Internship"
               text="Fill up the following form"
               label="Position"
+              mychange={addIntern}
             />
           </div>
         </div>
@@ -108,11 +129,17 @@ const Test = () => {
             </Typography>
           </div>
           <div className="data">
-            <ul>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
+            {state.projects.length ? (
+              <ul>
+                {state.projects.map(item => (
+                  <li>{item.pos}</li>
+                ))}
+              </ul>
+            ) : (
+              <h2>
+                <i>Click on the + button to add</i>
+              </h2>
+            )}
           </div>
           <div className="add">
             <DateDialog
@@ -130,39 +157,35 @@ const Test = () => {
             </Typography>
           </div>
           <div className="data">
-            <ul style={{ marginRight: "5vw" }}>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
-            <ul style={{ marginRight: "5vw" }}>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
-            <ul style={{ marginRight: "5vw" }}>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
-            <ul style={{ marginRight: "5vw" }}>
-              <li>Coffee</li>
-              <li>Tea</li>
-              <li>Milk</li>
-            </ul>
+            {state.skills.length ? (
+              <ul>
+                {state.skills.map(item => (
+                  <li>{item.pos}</li>
+                ))}
+              </ul>
+            ) : (
+              <h2>
+                <i>Click on the + button to add</i>
+              </h2>
+            )}
           </div>
           <div className="add">
-            <FormDialog />
+            <FormDialog mychange={addSkills} />
           </div>
         </div>
         <hr />
-        {/* <TextField
-          id="standard-required"
-          type="number"
-          label="Phone"
-          defaultValue="Hello World"
-          style={{ width: "80%" }}
-        /> */}
+        <button
+          style={{
+            width: "50vw",
+            height: "7vh",
+            marginBottom: "2vh",
+            marginTop: "2vh",
+            alignSelf: "center",
+            borderRadius: "15px"
+          }}
+        >
+          SEND
+        </button>
       </div>
     </div>
   );

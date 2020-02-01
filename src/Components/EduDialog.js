@@ -10,7 +10,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
-export default function EduDialog({ text }) {
+export default function EduDialog({ text, mychange, heading }) {
   const [open, setOpen] = React.useState(false);
   const [age, setAge] = React.useState("");
 
@@ -23,6 +23,7 @@ export default function EduDialog({ text }) {
   };
 
   const handleChange = event => {
+    mychange(event.target.value);
     setAge(event.target.value);
   };
 
@@ -36,7 +37,7 @@ export default function EduDialog({ text }) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Done</DialogTitle>
+        <DialogTitle id="form-dialog-title">{heading}</DialogTitle>
         <DialogContent>
           <DialogContentText>{text}</DialogContentText>
           <InputLabel id="demo-simple-select-label">

@@ -7,27 +7,26 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import Grid from "@material-ui/core/Grid";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker
-} from "@material-ui/pickers";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
-export default function DateDialog({ text, heading, label }) {
+export default function DateDialog({ text, heading, label, mychange }) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
+  const [exp, setExp] = React.useState(0);
+  const [pos, setPos] = React.useState("");
 
   const handleChange = event => {
     setValue(event.target.value);
   };
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2014-08-18T21:11:54")
-  );
 
-  const handleDateChange = date => {
-    setSelectedDate(date);
+  const handleChange2 = event => {
+    setExp(event.target.value);
+  };
+
+  const handleChange3 = event => {
+    setPos(event.target.value);
   };
 
   const handleClickOpen = () => {
@@ -35,6 +34,11 @@ export default function DateDialog({ text, heading, label }) {
   };
 
   const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleClose2 = () => {
+    mychange({ pos, exp, value });
     setOpen(false);
   };
 
@@ -51,7 +55,11 @@ export default function DateDialog({ text, heading, label }) {
         <DialogTitle id="form-dialog-title">{heading}</DialogTitle>
         <DialogContent>
           <DialogContentText>{text}</DialogContentText>
-          <TextField id="standard-basic" label={label} />
+          <TextField
+            id="standard-basic"
+            label={label}
+            onChange={handleChange3}
+          />
           <TextField
             id="standard-multiline-flexible"
             label="Add a description"
@@ -61,40 +69,31 @@ export default function DateDialog({ text, heading, label }) {
             style={{ width: "80%" }}
             onChange={handleChange}
           />
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Grid container justify="space-around">
-              <KeyboardDatePicker
-                disableToolbar
-                variant="inline"
-                format="MM/dd/yyyy"
-                margin="normal"
-                id="date-picker-inline"
-                label="Date picker inline"
-                value={selectedDate}
-                onChange={handleDateChange}
-                KeyboardButtonProps={{
-                  "aria-label": "change date"
-                }}
-              />
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog"
-                label="Date picker dialog"
-                format="MM/dd/yyyy"
-                value={selectedDate}
-                onChange={handleDateChange}
-                KeyboardButtonProps={{
-                  "aria-label": "change date"
-                }}
-              />
-            </Grid>
-          </MuiPickersUtilsProvider>
+
+          <InputLabel
+            id="demo-simple-select-label"
+            style={{ marginTop: "20px" }}
+          >
+            Experience
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={exp}
+            onChange={handleChange2}
+            defaultValue={0}
+          >
+            <MenuItem value={"0"}>0</MenuItem>
+            <MenuItem value={"1 - 3"}>1-3</MenuItem>
+            <MenuItem value={"3 - 7"}>3-7</MenuItem>
+            <MenuItem value={"8 - 15"}>8-15</MenuItem>
+          </Select>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose2} color="primary">
             Done
           </Button>
         </DialogActions>
