@@ -16,14 +16,14 @@ const SearchPage = () => {
     <div className="main-container" style={{ backgroundColor: "white" }}>
       <Navbar />
       <ReactiveBase
-        app="resume-search"
-        credentials="A7rmPfoe9:5a3aa39a-064f-4927-a1ab-9e6fe48bf35d"
+        app="employee-suggestion"
+        credentials="cu58PUhxz:a7b07871-36fe-4da7-8a56-4c387b4a282e"
       >
         <div className="ui">
           <div className="filters" style={{ backgroundColor: "#666666" }}>
             <MultiList
               style={{ color: "white", margin: "1vh" }}
-              dataField="categories.keyword"
+              dataField="label.keyword"
               componentId="currencyReactor"
               placeholder="Choose a Category"
               showFilter={true}
@@ -50,8 +50,8 @@ const SearchPage = () => {
                 width: "100%"
               }}
               componentId="nameReactor"
-              placeholder="Search for Products"
-              dataField="product_name"
+              placeholder="Search by Skills"
+              dataField="skills"
               searchInputId="NameSearch"
               iconPosition="right"
             />
@@ -70,8 +70,6 @@ const SearchPage = () => {
                 renderItem={item => (
                   <ReactiveList.ResultListWrapper>
                     <ResultList key={item._id}>
-                      {/* <ResultList.Image src={item.image[0]} /> */}
-
                       <ResultList.Content
                         style={{
                           color: "black",
@@ -82,11 +80,11 @@ const SearchPage = () => {
                         }}
                       >
                         <ResultList.Title style={{ color: "#333333" }}>
-                          {item.product_name}
+                          {`${item.First_Name}`}
                         </ResultList.Title>
                         <ResultList.Description>
                           <div>
-                            <p style={{}}>{item.description}</p>
+                            <p style={{}}>{item.skills}</p>
                             <br />
                             <div>
                               {" "}

@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import FormDialog from "./Dialog";
+import EduDialog from "./EduDialog";
+import DateDialog from "./DateDialog";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 
@@ -51,7 +53,7 @@ const Test = () => {
             </ul>
           </div>
           <div className="add">
-            <FormDialog />
+            <EduDialog text="Select your Educational Qualification" />
           </div>
         </div>
         <hr />
@@ -69,7 +71,11 @@ const Test = () => {
             </ul>
           </div>
           <div className="add">
-            <FormDialog />
+            <DateDialog
+              heading="Add a Job"
+              text="Fill up the following form"
+              label="Position"
+            />
           </div>
         </div>
         <hr />
@@ -87,7 +93,11 @@ const Test = () => {
             </ul>
           </div>
           <div className="add">
-            <FormDialog />
+            <DateDialog
+              heading="Add an Internship"
+              text="Fill up the following form"
+              label="Position"
+            />
           </div>
         </div>
         <hr />
@@ -105,7 +115,11 @@ const Test = () => {
             </ul>
           </div>
           <div className="add">
-            <FormDialog />
+            <DateDialog
+              heading="Add a Project"
+              text="Fill up the following form"
+              label="Topic"
+            />
           </div>
         </div>
         <hr />
