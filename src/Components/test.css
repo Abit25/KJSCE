@@ -1,0 +1,95 @@
+body {
+  background-color: #dcdcdc;
+}
+
+hr {
+  width: 95%;
+  align-self: center;
+  background-color: #e7e7e7;
+  height: 1px;
+  border: none;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  height: auto;
+  background-color: white;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education {
+  display: flex;
+  flex-direction: row;
+
+  /* background-color: #ededed; */
+  min-height: 30vh;
+  width: 100%;
+}
+
+.jobs {
+  display: flex;
+
+  flex-direction: row;
+  min-height: 30vh;
+  width: 100%;
+}
+.internship {
+  flex-direction: row;
+  display: flex;
+
+  /* background-color: #ededed; */
+  min-height: 30vh;
+  width: 100%;
+}
+.projects {
+  display: flex;
+
+  flex-direction: row;
+  min-height: 30vh;
+  width: 100%;
+}
+
+.skills {
+  flex-direction: row;
+  display: flex;
+
+  /* background-color: #ededed; */
+  min-height: 30vh;
+  width: 100%;
+}
+
+.data {
+  flex: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.heading {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2%;
+}
+
+.add {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin-bottom: 2px;
+}

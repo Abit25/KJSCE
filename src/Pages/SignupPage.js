@@ -13,23 +13,23 @@ import {
 import "./SignupPage.css";
 
 const SignUp = () => {
-  let history = useHistory();
-  useEffect(() => {
-    const check = async () => {
-      console.log("Checking");
-      const response = await axios.get(
-        "http://localhost:8080/auth/isloggedin",
-        { withCredentials: true }
-      );
-      if (response.data.user) {
-        history.push("/test");
-      }
-    };
-    check();
-  }, []);
+  // let history = useHistory();
+  // useEffect(() => {
+  //   const check = async () => {
+  //     console.log("Checking");
+  //     const response = await axios.get(
+  //       "http://localhost:8080/auth/isloggedin",
+  //       { withCredentials: true }
+  //     );
+  //     if (response.data.user) {
+  //       history.push("/test");
+  //     }
+  //   };
+  //   check();
+  // }, []);
 
   return (
-    <div className="container">
+    <div className="container2">
       <div className="img">
         <img src="https://images.unsplash.com/photo-1536318015590-7bf4095a08a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2536&q=80"></img>
       </div>
@@ -70,13 +70,13 @@ const SignUp = () => {
           Create an Account
         </a>
         <a
-          href="http://localhost:8080/auth/google"
+          href="http://localhost:8000/login/google-oauth2"
           style={{ width: "60%", textDecoration: "none" }}
         >
           <GoogleLoginButton />
         </a>
         <a
-          href="http://localhost:8080/auth/facebook"
+          href="http://localhost:8000/login/facebook"
           style={{ width: "60%", textDecoration: "none", marginBottom: "4%" }}
         >
           <FacebookLoginButton />
