@@ -138,7 +138,28 @@ const SearchPage = () => {
             </div>
           </div>
           <div className="list">
-            <div className="item"></div>
+            <div className="item">
+              <div style={{ marginLeft: "2vw" }}>
+                <h2>John Doe</h2>
+                <br />
+                Skills:<i>SQL,Python,Machine Learning,Deep Learning</i>
+                <br />
+                Past Job Experience: 5 years
+                <br />
+                Projects :
+                <ul>
+                  <li>
+                    <a>Link 1</a>
+                  </li>
+                  <li>
+                    <a>Link 2</a>
+                  </li>
+                  <li>
+                    <a>Link 3</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div className="item"></div>
             <div className="item"></div>
             <div className="item"></div>

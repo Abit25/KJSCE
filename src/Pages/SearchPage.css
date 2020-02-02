@@ -43,9 +43,12 @@
 }
 
 .item {
-  margin-top: 7vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
   height: 25vh;
   border: solid black 1px;
   width: 80%;
   margin-bottom: 4vh;
+  justify-content: center;
 }

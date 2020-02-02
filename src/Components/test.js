@@ -19,7 +19,16 @@ const Test = () => {
   const { addEdu, addSkills, state, addJobs, addIntern } = useContext(Context);
 
   const sendData = async () => {
-    const res = await axios.post("http://localhost:8000/demo/", { state });
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+    const res = await axios.post(
+      "http://localhost:8000/demo/",
+
+      { state },
+      {
+        withCredentials: true
+      }
+    );
   };
 
   return (
