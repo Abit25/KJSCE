@@ -47,8 +47,7 @@
   flex-direction: column;
   margin-top: 4vh;
   height: 25vh;
-  border: solid black 1px;
-  width: 80%;
+  width: 60vw;
   margin-bottom: 4vh;
   justify-content: center;
 }

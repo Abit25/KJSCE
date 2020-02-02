@@ -1,0 +1,21 @@
+.lower-half2 {
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbox {
+  width: 80vw;
+  height: 10vh;
+  background-color: #333333;
+  border-radius: 35px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

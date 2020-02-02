@@ -7,6 +7,9 @@ import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import Chip from "@material-ui/core/Chip";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 import "./SearchPage.css";
 
 const useStyles = makeStyles(theme => ({
@@ -139,26 +142,20 @@ const SearchPage = () => {
           </div>
           <div className="list">
             <div className="item">
-              <div style={{ marginLeft: "2vw" }}>
-                <h2>John Doe</h2>
-                <br />
-                Skills:<i>SQL,Python,Machine Learning,Deep Learning</i>
-                <br />
-                Past Job Experience: 5 years
-                <br />
-                Projects :
-                <ul>
-                  <li>
-                    <a>Link 1</a>
-                  </li>
-                  <li>
-                    <a>Link 2</a>
-                  </li>
-                  <li>
-                    <a>Link 3</a>
-                  </li>
-                </ul>
-              </div>
+              <Card>
+                <CardContent>
+                  <h2>John Doe</h2>
+                  <br />
+                  Skills:<i>SQL,Python,Machine Learning,Deep Learning</i>
+                  <br />
+                  <br />
+                  Past Job Experience: 5 years
+                  <br />
+                  <br />
+                  Projects : <a>Link 1</a> <a>Link 2</a> <a>Link 3</a>{" "}
+                  <a>Link 4</a>
+                </CardContent>
+              </Card>
             </div>
             <div className="item"></div>
             <div className="item"></div>
