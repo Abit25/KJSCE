@@ -3,6 +3,8 @@ import createDataContext from "./createDataContext";
 
 const authReducer = (state, action) => {
   switch (action.type) {
+    case "add_user":
+      return { ...state, user: action.payload };
     case "add_proj":
       return { ...state, projects: [...state.projects, action.payload] };
     case "add_intern":
@@ -12,7 +14,7 @@ const authReducer = (state, action) => {
     case "add_jobs":
       return { ...state, jobs: [...state.jobs, action.payload] };
     case "add_skills":
-      return { ...state, skills: [...state.skills, action.payload] };
+      return { ...state, skills: action.payload };
     default:
       return state;
   }
@@ -20,7 +22,7 @@ const authReducer = (state, action) => {
 
 const addUser = dispatch => {
   return user => {
-    dispatch(user);
+    dispatch({ type: "add_user", payload: user });
   };
 };
 

@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
+import { Context } from "../context/authContext";
 import axios from "axios";
 import {
   GoogleLoginButton,
@@ -13,20 +14,22 @@ import {
 import "./SignupPage.css";
 
 const SignUp = () => {
-  // let history = useHistory();
-  // useEffect(() => {
-  //   const check = async () => {
-  //     console.log("Checking");
-  //     const response = await axios.get(
-  //       "http://localhost:8080/auth/isloggedin",
-  //       { withCredentials: true }
-  //     );
-  //     if (response.data.user) {
-  //       history.push("/test");
-  //     }
-  //   };
-  //   check();
-  // }, []);
+  let history = useHistory();
+  let { addUser, state } = useContext(Context);
+  useEffect(() => {
+    const check = async () => {
+      console.log("Checking");
+      const response = await axios.get("http://localhost:8000/checkLogin/", {
+        withCredentials: true
+      });
+      console.log(response.data);
+      if (response.data.user) {
+        addUser(response.data.user);
+        history.push("/test");
+      }
+    };
+    check();
+  }, []);
 
   return (
     <div className="container2">

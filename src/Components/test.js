@@ -6,6 +6,7 @@ import DateDialog from "./DateDialog";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { Context } from "../context/authContext";
+import Button from "@material-ui/core/Button";
 
 import Navbar from "./Navbar";
 import "./test.css";
@@ -16,6 +17,11 @@ const handleClick = () => {
 
 const Test = () => {
   const { addEdu, addSkills, state, addJobs, addIntern } = useContext(Context);
+
+  const sendData = async () => {
+    const res = await axios.post("http://localhost:8000/demo/", { state });
+  };
+
   return (
     <div className="main" style={{ backgroundColor: "#333333" }}>
       <Navbar />
@@ -36,7 +42,7 @@ const Test = () => {
           }}
         >
           <Typography variant="h2">
-            <b>John Doe</b>
+            <b>{state.user}</b>
           </Typography>
           <p style={{ marginLeft: "5%" }}> john@xyz.com</p>
         </div>
@@ -160,7 +166,7 @@ const Test = () => {
             {state.skills.length ? (
               <ul>
                 {state.skills.map(item => (
-                  <li>{item.pos}</li>
+                  <li>{item}</li>
                 ))}
               </ul>
             ) : (
@@ -174,7 +180,7 @@ const Test = () => {
           </div>
         </div>
         <hr />
-        <button
+        {/* <button
           style={{
             width: "50vw",
             height: "7vh",
@@ -185,7 +191,21 @@ const Test = () => {
           }}
         >
           SEND
-        </button>
+        </button> */}
+        <Button
+          style={{
+            width: "30vw",
+            height: "7vh",
+            marginBottom: "2vh",
+            marginTop: "2vh",
+            alignSelf: "center",
+            borderRadius: "15px",
+            backgroundColor: "#FF9900"
+          }}
+          onClick={sendData}
+        >
+          Submit
+        </Button>
       </div>
     </div>
   );
